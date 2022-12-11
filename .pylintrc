@@ -6,3 +6,4 @@ disable=C0303,E1136,C0114,C0115,C0116,R0801
 
 [FORMAT]
 max-line-length=88
+good-names=i,j,x,y

@@ -8,39 +8,36 @@ def solution(input_rel_uri):
             for line in ifile.read().strip().split("\n")
         ]
     return max(
-        scenic_score(heights, row_index, col_index)
-        for row_index, row in enumerate(heights)
-        for col_index, _ in enumerate(row)
+        scenic_score(heights, x, y)
+        for x, row in enumerate(heights)
+        for y, _ in enumerate(row)
     )
 
 
-def scenic_score(heights, row_index, col_index):
+def scenic_score(heights, x, y):
     return functools.reduce(
         int.__mul__,
         (
-            viewing_distance(
-                heights[row_index][col_index],
-                view_direction(heights, row_index, col_index),
-            )
+            viewing_distance(heights[x][y], view_direction(heights, x, y))
             for view_direction in [view_right, view_left, view_down, view_up]
         ),
     )
 
 
-def view_right(heights, row_index, col_index):
-    return heights[row_index][col_index + 1 :]
+def view_right(heights, x, y):
+    return heights[x][y + 1 :]
 
 
-def view_left(heights, row_index, col_index):
-    return heights[row_index][:col_index][::-1]
+def view_left(heights, x, y):
+    return heights[x][:y][::-1]
 
 
-def view_down(heights, row_index, col_index):
-    return [heights[x][col_index] for x in range(row_index + 1, len(heights))]
+def view_down(heights, x, y):
+    return [heights[x][y] for x in range(x + 1, len(heights))]
 
 
-def view_up(heights, row_index, col_index):
-    return [heights[x][col_index] for x in range(row_index)][::-1]
+def view_up(heights, x, y):
+    return [heights[x][y] for x in range(x)][::-1]
 
 
 def viewing_distance(max_height, view):
