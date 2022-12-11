@@ -1,6 +1,10 @@
-from collections import namedtuple
+import dataclasses
 
-Position = namedtuple("Position", "x y")
+
+@dataclasses.dataclass(frozen=True, slots=True)
+class Position:
+    x: int
+    y: int
 
 
 def solution(input_rel_uri):
