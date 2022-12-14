@@ -2,7 +2,7 @@
 load-plugins=pylint.extensions.broad_try_clause,pylint.extensions.emptystring,pylint.extensions.comparetozero,pylint.extensions.bad_builtin,pylint.extensions.mccabe,pylint.extensions.docstyle,pylint.extensions.check_elif,pylint.extensions.redefined_variable_type,pylint.extensions.overlapping_exceptions,pylint.extensions.docparams
 
 [MESSAGES CONTROL]
-disable=C0303,E1136,C0114,C0115,C0116,R0801
+disable=C0303,E1136,C0114,C0115,C0116,R0801,R0911,R1260,W0123
 
 [FORMAT]
 max-line-length=88
